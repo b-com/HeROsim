@@ -1,0 +1,82 @@
+{
+  "someHdd": {
+    "name": "Some HDD",
+    "hardware": "hdd",
+    "remote": false,
+    "price": 10,
+    "idleEnergy": 1.000,
+    "capacity": 1000,
+    "iops": {
+      "read": 405,
+      "write": 301
+    },
+    "throughput": {
+      "read": 1.6,
+      "write": 1.2
+    },
+    "latency": {
+      "read": 0.015785,
+      "write": 0.015785
+    }
+  },
+  "someSsd": {
+    "name": "Some SSD",
+    "hardware": "ssd",
+    "remote": false,
+    "price": 50,
+    "idleEnergy": 0.456,
+    "capacity": 400,
+    "iops": {
+      "read": 92500,
+      "write": 60170
+    },
+    "throughput": {
+      "read": 360,
+      "write": 235
+    },
+    "latency": {
+      "read": 3.1e-5,
+      "write": 3.1e-5
+    }
+  },
+  "someNvm": {
+    "name": "Some NVM",
+    "hardware": "nvm",
+    "remote": false,
+    "price": 250,
+    "idleEnergy": 0.123,
+    "capacity": 200,
+    "iops": {
+      "read": 400,
+      "write": 300
+    },
+    "throughput": {
+      "read": 1650,
+      "write": 680
+    },
+    "latency": {
+      "read": 0.00016,
+      "write": 0.06
+    }
+  },
+  "someRemote": {
+    "name": "Some Remote Storage",
+    "hardware": "ssd",
+    "remote": true,
+    "price": 10,
+    "idleEnergy": 0.456,
+    "capacity": 99999999999999999999999999999999999999999999999999,
+    "iops": {
+      "read": 92500,
+      "write": 60170
+    },
+    "throughput": {
+      "read": 360,
+      "write": 235
+    },
+    "latency": {
+      "read": 3.1e-5,
+      "write": 3.1e-5
+    }
+  }
+}

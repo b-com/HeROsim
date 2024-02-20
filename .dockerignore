@@ -1,0 +1,16 @@
+# VS Code
+.vscode
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Ruff linter
+.ruff_cache
+
+# Project specific directories
+chart
+log
+result
+tmp

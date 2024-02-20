@@ -1,0 +1,37 @@
+{
+  "rpiCpu": {
+    "shortName": "rpiCpu",
+    "name": "Raspberry Pi 4 Broadcom BCM2711",
+    "hardware": "cpu",
+    "price": 60,
+    "idleEnergy": 0.000663305
+  },
+  "xavierCpu": {
+    "shortName": "xavierCpu",
+    "name": "Nvidia Xavier Carmel Arm v8.2",
+    "hardware": "cpu",
+    "price": 3399,
+    "idleEnergy": 0.00078539
+  },
+  "xavierGpu": {
+    "shortName": "xavierGpu",
+    "name": "Nvidia Xavier Volta",
+    "hardware": "gpu",
+    "price": 3399,
+    "idleEnergy": 0.00150075
+  },
+  "xavierDla": {
+    "shortName": "xavierDla",
+    "name": "Nvidia Xavier DLA",
+    "hardware": "dla",
+    "price": 3399,
+    "idleEnergy": 0.000005
+  },
+  "pynqFpga": {
+    "shortName": "pynqFpga",
+    "name": "Xilinx Artix-7",
+    "hardware": "fpga",
+    "price": 170,
+    "idleEnergy": 0.002688664
+  }
+}

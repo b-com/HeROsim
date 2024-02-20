@@ -1,0 +1,61 @@
+{
+  "configurations": [
+    {
+      "name": "Scenario: HeROCache (IDS)",
+      "request": "launch",
+      "type": "python",
+      "module": "src.placement",
+      "args": [
+        "--clear",
+        "-i", "data/ids/infrastructure.json",
+        "-d", "data/ids",
+        "-w", "data/ids/traces/workload-83-300.json",
+        "-s", "hrc_hrc",
+        "-c", "fifo",
+        "-t", "least_penalty",
+        "-k", "5",
+        "-q", "20"
+      ],
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "Scenario: HeROfake (IDS)",
+      "request": "launch",
+      "type": "python",
+      "module": "src.placement",
+      "args": [
+        "--clear",
+        "-i", "data/ids/infrastructure.json",
+        "-d", "data/ids",
+        "-w", "data/ids/traces/workload-83-300.json",
+        "-s", "hro_hro",
+        "-c", "fifo",
+        "-t", "least_penalty",
+        "-k", "5",
+        "-q", "20"
+      ],
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "Scenario: Knative (IDS)",
+      "request": "launch",
+      "type": "python",
+      "module": "src.placement",
+      "args": [
+        "--clear",
+        "-i", "data/ids/infrastructure.json",
+        "-d", "data/ids",
+        "-w", "data/ids/traces/workload-83-300.json",
+        "-s", "kn_kn",
+        "-c", "fifo",
+        "-t", "fifo",
+        "-k", "5",
+        "-q", "20"
+      ],
+      "console": "integratedTerminal",
+      "justMyCode": true
+    }
+  ]
+}

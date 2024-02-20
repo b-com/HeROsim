@@ -1,0 +1,82 @@
+{
+  "nofs-rf": {
+    "name": "nofs-rf",
+    "dag": {
+      "rf": []
+    }
+  },
+  "nofs-dnn1": {
+    "name": "nofs-dnn1",
+    "dag": {
+      "dnn1": []
+    }
+  },
+  "nofs-dnn2": {
+    "name": "nofs-dnn2",
+    "dag": {
+      "dnn2": []
+    }
+  },
+  "nofs-cnn": {
+    "name": "nofs-cnn",
+    "dag": {
+      "cnn": []
+    }
+  },
+  "ae-rf": {
+    "name": "ae-rf",
+    "dag": {
+      "ae": [],
+      "rf": ["ae"]
+    }
+  },
+  "ae-dnn1": {
+    "name": "ae-dnn1",
+    "dag": {
+      "ae": [],
+      "dnn1": ["ae"]
+    }
+  },
+  "ae-dnn2": {
+    "name": "ae-dnn2",
+    "dag": {
+      "ae": [],
+      "dnn2": ["ae"]
+    }
+  },
+  "ae-cnn": {
+    "name": "ae-cnn",
+    "dag": {
+      "ae": [],
+      "cnn": ["ae"]
+    }
+  },
+  "es-rf": {
+    "name": "es-rf",
+    "dag": {
+      "es": [],
+      "rf": ["es"]
+    }
+  },
+  "es-dnn1": {
+    "name": "es-dnn1",
+    "dag": {
+      "es": [],
+      "dnn1": ["es"]
+    }
+  },
+  "es-dnn2": {
+    "name": "es-dnn2",
+    "dag": {
+      "es": [],
+      "dnn2": ["es"]
+    }
+  },
+  "es-cnn": {
+    "name": "es-cnn",
+    "dag": {
+      "es": [],
+      "cnn": ["es"]
+    }
+  }
+}

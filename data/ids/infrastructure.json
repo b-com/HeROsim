@@ -1,0 +1,100 @@
+{
+  "network": {
+    "bandwidth": 100
+  },
+  "nodes": [
+    {
+      "memory": 8,
+      "platforms": [
+        "rpiCpu", "rpiCpu", "rpiCpu", "rpiCpu"
+      ],
+      "storage": [
+        "flashCard", "someRemote"
+      ]
+    },
+    {
+      "memory": 8,
+      "platforms": [
+        "rpiCpu", "rpiCpu", "rpiCpu", "rpiCpu"
+      ],
+      "storage": [
+        "flashCard", "someRemote"
+      ]
+    },
+    {
+      "memory": 8,
+      "platforms": [
+        "rpiCpu", "rpiCpu", "rpiCpu", "rpiCpu"
+      ],
+      "storage": [
+        "flashCard", "someRemote"
+      ]
+    },
+    {
+      "memory": 8,
+      "platforms": [
+        "rpiCpu", "rpiCpu", "rpiCpu", "rpiCpu"
+      ],
+      "storage": [
+        "flashCard", "someRemote"
+      ]
+    },
+    {
+      "memory": 8,
+      "platforms": [
+        "rpiCpu", "rpiCpu", "rpiCpu", "rpiCpu"
+      ],
+      "storage": [
+        "flashCard", "someRemote"
+      ]
+    },
+    {
+      "memory": 8,
+      "platforms": [
+        "rpiCpu", "rpiCpu", "rpiCpu", "rpiCpu"
+      ],
+      "storage": [
+        "flashCard", "someRemote"
+      ]
+    },
+    {
+      "memory": 8,
+      "platforms": [
+        "rpiCpu", "rpiCpu", "rpiCpu", "rpiCpu"
+      ],
+      "storage": [
+        "flashCard", "someRemote"
+      ]
+    },
+    {
+      "memory": 8,
+      "platforms": [
+        "rpiCpu", "rpiCpu", "rpiCpu", "rpiCpu"
+      ],
+      "storage": [
+        "flashCard", "someRemote"
+      ]
+    },
+    {
+      "memory": 32,
+      "platforms": [
+        "xavierCpu", "xavierCpu", "xavierCpu", "xavierCpu",
+        "xavierCpu", "xavierCpu", "xavierCpu", "xavierCpu",
+        "xavierGpu",
+        "xavierDla"
+      ],
+      "storage": [
+        "eMMC", "someRemote"
+      ]
+    },
+    {
+      "memory": 0.5,
+      "platforms": [
+        "pynqFpga"
+      ],
+      "storage": [
+        "flashCard", "someRemote"
+      ]
+    }
+  ]
+}

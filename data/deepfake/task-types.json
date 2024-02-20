@@ -1,0 +1,131 @@
+{
+  "resNet50": {
+    "name": "resNet50",
+    "platforms": [
+      "xeonCpuFull", "xeonCpu",
+      "nvidiaGpu", "xilinxFpga"
+    ],
+    "memoryRequirements": {
+      "xeonCpuFull": 1.3,
+      "xeonCpu": 1.3,
+      "nvidiaGpu": 3.3,
+      "xilinxFpga": 0.0
+    },
+    "coldStartDuration": {
+      "xeonCpuFull": 1.23224167,
+      "xeonCpu": 1.23224167,
+      "nvidiaGpu": 2.34032667,
+      "xilinxFpga": 9.952
+    },
+    "executionTime": {
+      "xeonCpuFull": 0.124458333,
+      "xeonCpu": 0.124458333,
+      "nvidiaGpu": 0.02405,
+      "xilinxFpga": 0.009508053
+    },
+    "energy": {
+      "xeonCpuFull": 0.00000311,
+      "xeonCpu": 0.00000311,
+      "nvidiaGpu": 0.0000017,
+      "xilinxFpga": 0.0000005
+    },
+    "imageSize": {
+      "xeonCpuFull": 3.18,
+      "xeonCpu": 3.18,
+      "nvidiaGpu": 3.18,
+      "xilinxFpga": 3.851
+    },
+    "stateSize": {
+      "resNet50": {
+        "input": 6272,
+        "output": 1
+      }
+    }
+  },
+  "vgg16": {
+    "name": "vgg16",
+    "platforms": [
+      "xeonCpuFull", "xeonCpu",
+      "nvidiaGpu", "xilinxFpga"
+    ],
+    "memoryRequirements": {
+      "xeonCpuFull": 1.8,
+      "xeonCpu": 1.8,
+      "nvidiaGpu": 3.3,
+      "xilinxFpga": 0
+    },
+    "coldStartDuration": {
+      "xeonCpuFull": 2.514716667,
+      "xeonCpu": 2.514716667,
+      "nvidiaGpu": 4.641291667,
+      "xilinxFpga": 14.528
+    },
+    "executionTime": {
+      "xeonCpuFull": 0.143483333,
+      "xeonCpu": 0.143483333,
+      "nvidiaGpu": 0.046641667,
+      "xilinxFpga": 0.010402147
+    },
+    "energy": {
+      "xeonCpuFull": 0.00000434,
+      "xeonCpu": 0.00000434,
+      "nvidiaGpu": 0.00000343,
+      "xilinxFpga": 0.00000055
+    },
+    "imageSize": {
+      "xeonCpuFull": 2.78,
+      "xeonCpu": 2.78,
+      "nvidiaGpu": 2.78,
+      "xilinxFpga": 3.473
+    },
+    "stateSize": {
+      "vgg16": {
+        "input": 6272,
+        "output": 1
+      }
+    }
+  },
+  "vgg19": {
+    "name": "vgg19",
+    "platforms": [
+      "xeonCpuFull", "xeonCpu",
+      "nvidiaGpu", "xilinxFpga"
+    ],
+    "memoryRequirements": {
+      "xeonCpuFull": 1.9,
+      "xeonCpu": 1.9,
+      "nvidiaGpu": 3.4,
+      "xilinxFpga": 0
+    },
+    "coldStartDuration": {
+      "xeonCpuFull": 2.559625,
+      "xeonCpu": 2.559625,
+      "nvidiaGpu": 4.64129167,
+      "xilinxFpga": 14.758
+    },
+    "executionTime": {
+      "xeonCpuFull": 0.167208333,
+      "xeonCpu": 0.167208333,
+      "nvidiaGpu": 0.048133333,
+      "xilinxFpga": 0.012235409
+    },
+    "energy": {
+      "xeonCpuFull": 0.00000516,
+      "xeonCpu": 0.00000516,
+      "nvidiaGpu": 0.00000358,
+      "xilinxFpga": 0.00000065
+    },
+    "imageSize": {
+      "xeonCpuFull": 2.81,
+      "xeonCpu": 2.81,
+      "nvidiaGpu": 2.81,
+      "xilinxFpga": 3.493
+    },
+    "stateSize": {
+      "vgg19": {
+        "input": 6272,
+        "output": 1
+      }
+    }
+  }
+}

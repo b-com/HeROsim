@@ -1,0 +1,62 @@
+{
+  "eMMC": {
+    "name": "eMMC",
+    "hardware": "mmc",
+    "remote": false,
+    "price": 32,
+    "idleEnergy": 0,
+    "capacity": 32,
+    "iops": {
+      "read": 1820,
+      "write": 606
+    },
+    "throughput": {
+      "read": 294,
+      "write": 82
+    },
+    "latency": {
+      "read": 0.00452,
+      "write": 0.00452
+    }
+  },
+  "flashCard": {
+    "name": "Flash Card",
+    "hardware": "flash",
+    "remote": false,
+    "price": 16,
+    "idleEnergy": 0,
+    "capacity": 64,
+    "iops": {
+      "read": 2977,
+      "write": 987
+    },
+    "throughput": {
+      "read": 100,
+      "write": 40
+    },
+    "latency": {
+      "read": 0.00122,
+      "write": 0.00122
+    }
+  },
+  "someRemote": {
+    "name": "Some Remote Storage",
+    "hardware": "ssd",
+    "remote": true,
+    "price": 8,
+    "idleEnergy": 0,
+    "capacity": 99999999999999999999999999999999999999999999999999,
+    "iops": {
+      "read": 92500,
+      "write": 60170
+    },
+    "throughput": {
+      "read": 108,
+      "write": 108
+    },
+    "latency": {
+      "read": 0.015,
+      "write": 0.015
+    }
+  }
+}

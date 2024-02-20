@@ -1,0 +1,20 @@
+{
+  "resNet50": {
+    "name": "resNet50",
+    "dag": {
+      "resNet50": []
+    }
+  },
+  "vgg16": {
+    "name": "vgg16",
+    "dag": {
+      "vgg16": []
+    }
+  },
+  "vgg19": {
+    "name": "vgg19",
+    "dag": {
+      "vgg19": []
+    }
+  }
+}

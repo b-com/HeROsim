@@ -1,0 +1,298 @@
+{
+  "es": {
+    "name": "es",
+    "platforms": [
+      "rpiCpu",
+      "xavierCpu"
+    ],
+    "memoryRequirements": {
+      "rpiCpu": 0.003692627,
+      "xavierCpu": 0.004680634
+    },
+    "coldStartDuration": {
+      "rpiCpu": 0.018,
+      "xavierCpu": 0.006
+    },
+    "executionTime": {
+      "rpiCpu": 8.355e-3,
+      "xavierCpu": 2.58625e-3
+    },
+    "energy": {
+      "rpiCpu": 5.49653e-9,
+      "xavierCpu": 7.32639e-8
+    },
+    "imageSize": {
+      "rpiCpu": 0.003,
+      "xavierCpu": 0.003
+    },
+    "stateSize": {
+      "es-rf": {
+        "input": 153600,
+        "output": 12800
+      },
+      "es-dnn1": {
+        "input": 153600,
+        "output": 12800
+      },
+      "es-dnn2": {
+        "input": 153600,
+        "output": 12800
+      },
+      "es-cnn": {
+        "input": 153600,
+        "output": 12800
+      }
+    }
+  },
+  "ae": {
+    "name": "ae",
+    "platforms": [
+      "rpiCpu",
+      "xavierGpu",
+      "xavierCpu"
+    ],
+    "memoryRequirements": {
+      "rpiCpu": 0.066303253,
+      "xavierGpu": 0.068904877,
+      "xavierCpu": 0.068904877
+    },
+    "coldStartDuration": {
+      "rpiCpu": 0.452,
+      "xavierGpu": 6.32,
+      "xavierCpu": 0.05
+    },
+    "executionTime": {
+      "rpiCpu": 0.0109625,
+      "xavierGpu": 0.0264938,
+      "xavierCpu": 0.00186375
+    },
+    "energy": {
+      "rpiCpu": 2.22604e-8,
+      "xavierGpu": 1.125e-7,
+      "xavierCpu": 1.84028e-8
+    },
+    "imageSize": {
+      "rpiCpu": 3.06,
+      "xavierGpu": 3.06,
+      "xavierCpu": 3.06
+    },
+    "stateSize": {
+      "ae-rf": {
+        "input": 153600,
+        "output": 20000
+      },
+      "ae-dnn1": {
+        "input": 153600,
+        "output": 20000
+      },
+      "ae-dnn2": {
+        "input": 153600,
+        "output": 20000
+      },
+      "ae-cnn": {
+        "input": 153600,
+        "output": 20000
+      }
+    }
+  },
+  "rf": {
+    "name": "rf",
+    "platforms": [
+      "rpiCpu",
+      "xavierGpu",
+      "xavierCpu"
+    ],
+    "memoryRequirements": {
+      "rpiCpu": 0.032840729,
+      "xavierGpu": 1.5,
+      "xavierCpu": 0.09021759
+    },
+    "coldStartDuration": {
+      "rpiCpu": 0.067,
+      "xavierGpu": 12.72,
+      "xavierCpu": 0.05
+    },
+    "executionTime": {
+      "rpiCpu": 0.00422375,
+      "xavierGpu": 0.0004975,
+      "xavierCpu": 0.00357625
+    },
+    "energy": {
+      "rpiCpu": 2.07986e-9,
+      "xavierGpu": 6.84028e-8,
+      "xavierCpu": 2.15278e-8
+    },
+    "imageSize": {
+      "rpiCpu": 3.057,
+      "xavierGpu": 2.99,
+      "xavierCpu": 2.987
+    },
+    "stateSize": {
+      "ae-rf": {
+        "input": 20000,
+        "output": 8000
+      },
+      "es-rf": {
+        "input": 12800,
+        "output": 8000
+      },
+      "nofs-rf": {
+        "input": 153600,
+        "output": 8000
+      }
+    }
+  },
+  "dnn1": {
+    "name": "dnn1",
+    "platforms": [
+      "rpiCpu",
+      "xavierGpu",
+      "xavierCpu",
+      "pynqFpga"
+    ],
+    "memoryRequirements": {
+      "rpiCpu": 0.066188812,
+      "xavierGpu": 0.9,
+      "xavierCpu": 0.068969727,
+      "pynqFpga": 0.0
+    },
+    "coldStartDuration": {
+      "rpiCpu": 0.33,
+      "xavierGpu": 6.17,
+      "xavierCpu": 0.071,
+      "pynqFpga": 0.98
+    },
+    "executionTime": {
+      "rpiCpu": 0.00290875,
+      "xavierGpu": 0.020835,
+      "xavierCpu": 0.0010475,
+      "pynqFpga": 0.00056625
+    },
+    "energy": {
+      "rpiCpu": 1.64931e-8,
+      "xavierGpu": 7.53473e-8,
+      "xavierCpu": 1.52604e-8,
+      "pynqFpga": 2.99653e-10
+    },
+    "imageSize": {
+      "rpiCpu": 3.057,
+      "xavierGpu": 2.99,
+      "xavierCpu": 2.987,
+      "pynqFpga": 0.004
+    },
+    "stateSize": {
+      "ae-dnn1": {
+        "input": 20000,
+        "output": 8000
+      },
+      "es-dnn1": {
+        "input": 12800,
+        "output": 8000
+      },
+      "nofs-dnn1": {
+        "input": 153600,
+        "output": 8000
+      }
+    }
+  },
+  "dnn2": {
+    "name": "dnn2",
+    "platforms": [
+      "rpiCpu",
+      "xavierGpu",
+      "xavierCpu"
+    ],
+    "memoryRequirements": {
+      "rpiCpu": 0.069229126,
+      "xavierGpu": 0.9,
+      "xavierCpu": 0.068973541
+    },
+    "coldStartDuration": {
+      "rpiCpu": 0.636,
+      "xavierGpu": 6.14,
+      "xavierCpu": 0.096
+    },
+    "executionTime": {
+      "rpiCpu": 0.16842,
+      "xavierGpu": 0.0362488,
+      "xavierCpu": 0.0239175
+    },
+    "energy": {
+      "rpiCpu": 1.35764e-7,
+      "xavierGpu": 1.41667e-7,
+      "xavierCpu": 8.19445e-8
+    },
+    "imageSize": {
+      "rpiCpu": 3.057,
+      "xavierGpu": 2.99,
+      "xavierCpu": 2.987
+    },
+    "stateSize": {
+      "ae-dnn2": {
+        "input": 20000,
+        "output": 8000
+      },
+      "es-dnn2": {
+        "input": 12800,
+        "output": 8000
+      },
+      "nofs-dnn2": {
+        "input": 153600,
+        "output": 8000
+      }
+    }
+  },
+  "cnn": {
+    "name": "cnn",
+    "platforms": [
+      "rpiCpu",
+      "xavierCpu",
+      "xavierGpu",
+      "xavierDla"
+    ],
+    "memoryRequirements": {
+      "rpiCpu": 0.110443115,
+      "xavierGpu": 1.3,
+      "xavierCpu": 0.075996399,
+      "xavierDla": 0.020141602
+    },
+    "coldStartDuration": {
+      "rpiCpu": 1.162,
+      "xavierGpu": 10.62,
+      "xavierCpu": 0.135,
+      "xavierDla": 38.0
+    },
+    "executionTime": {
+      "rpiCpu": 3.0858438,
+      "xavierGpu": 0.1036875,
+      "xavierCpu": 0.7055338,
+      "xavierDla": 0.5617938
+    },
+    "energy": {
+      "rpiCpu": 4.6875e-7,
+      "xavierGpu": 4.22667e-7,
+      "xavierCpu": 1.96625e-6,
+      "xavierDla": 1.84236e-6
+    },
+    "imageSize": {
+      "rpiCpu": 3.057,
+      "xavierGpu": 2.99,
+      "xavierCpu": 2.987,
+      "xavierDla": 2.99
+    },
+    "stateSize": {
+      "ae-cnn": {
+        "input": 20000,
+        "output": 8000
+      },
+      "es-cnn": {
+        "input": 12800,
+        "output": 8000
+      },
+      "nofs-cnn": {
+        "input": 153600,
+        "output": 8000
+      }
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "network": {
+    "bandwidth": 1250
+  },
+  "nodes": [
+    {
+      "memory": 128,
+      "platforms": [
+        "xeonCpu", "xeonCpu", "xeonCpu", "xeonCpu",
+        "nvidiaGpu",
+        "xilinxFpga"
+      ],
+      "storage": [
+        "someRemote", "someHdd", "someSsd", "someNvm"
+      ]
+    },
+    {
+      "memory": 32,
+      "platforms": [
+        "xeonCpu", "xeonCpu", "xeonCpu", "xeonCpu",
+        "nvidiaGpu"
+      ],
+      "storage": [
+        "someRemote", "someHdd", "someSsd"
+      ]
+    },
+    {
+      "memory": 64,
+      "platforms": [
+        "xeonCpu", "xeonCpu", "xeonCpu", "xeonCpu",
+        "nvidiaGpu"
+      ],
+      "storage": [
+        "someRemote", "someNvm"
+      ]
+    },
+    {
+      "memory": 128,
+      "platforms": [
+        "xeonCpu", "xeonCpu", "xeonCpu", "xeonCpu"
+      ],
+      "storage": [
+        "someRemote", "someHdd", "someSsd", "someNvm"
+      ]
+    },
+    {
+      "memory": 32,
+      "platforms": [
+        "xeonCpu", "xeonCpu", "xeonCpu", "xeonCpu",
+        "nvidiaGpu"
+      ],
+      "storage": [
+        "someRemote", "someHdd", "someSsd"
+      ]
+    },
+    {
+      "memory": 64,
+      "platforms": [
+        "xeonCpu", "xeonCpu", "xeonCpu", "xeonCpu",
+        "nvidiaGpu"
+      ],
+      "storage": [
+        "someRemote", "someNvm"
+      ]
+    },
+    {
+      "memory": 128,
+      "platforms": [
+        "xeonCpu", "xeonCpu", "xeonCpu", "xeonCpu",
+        "xilinxFpga"
+      ],
+      "storage": [
+        "someRemote", "someHdd", "someSsd", "someNvm"
+      ]
+    },
+    {
+      "memory": 32,
+      "platforms": [
+        "xeonCpu", "xeonCpu", "xeonCpu", "xeonCpu"
+      ],
+      "storage": [
+        "someRemote", "someHdd", "someSsd"
+      ]
+    },
+    {
+      "memory": 64,
+      "platforms": [
+        "xeonCpu", "xeonCpu", "xeonCpu", "xeonCpu",
+        "nvidiaGpu"
+      ],
+      "storage": [
+        "someRemote", "someNvm"
+      ]
+    },
+    {
+      "memory": 128,
+      "platforms": [
+        "xeonCpu", "xeonCpu", "xeonCpu", "xeonCpu"
+      ],
+      "storage": [
+        "someRemote", "someSsd", "someSsd"
+      ]
+    }
+  ]
+}

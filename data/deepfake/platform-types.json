@@ -1,0 +1,30 @@
+{
+  "xeonCpuFull": {
+    "shortName": "xeonCpuFull",
+    "name": "Intel Xeon ES-1620 v4",
+    "hardware": "cpu",
+    "price": 294,
+    "idleEnergy": 0.067
+  },
+  "xeonCpu": {
+    "shortName": "xeonCpu",
+    "name": "Intel Xeon ES-1620 v4 (1 core)",
+    "hardware": "cpu",
+    "price": 36.75,
+    "idleEnergy": 0.008375
+  },
+  "nvidiaGpu": {
+    "shortName": "nvidiaGpu",
+    "name": "Nvidia GeForce RTX 2070 Super",
+    "hardware": "gpu",
+    "price": 499,
+    "idleEnergy": 0.010
+  },
+  "xilinxFpga": {
+    "shortName": "xilinxFpga",
+    "name": "Xilinx Alveo U250",
+    "hardware": "fpga",
+    "price": 7695,
+    "idleEnergy": 0.030
+  }
+}
