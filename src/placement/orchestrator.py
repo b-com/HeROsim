@@ -47,10 +47,14 @@ from src.placement.model import (
 )
 
 
+from src.placement.evaluation import footprint_evaluation, embedded_footprint_evaluation
+
+
 class Orchestrator:
     def __init__(
         self,
         env: Environment,
+        scenario,
         data: SimulationData,
         policy: SimulationPolicy,
         autoscaler: Type[Autoscaler],
@@ -61,6 +65,7 @@ class Orchestrator:
     ):
         self.env = env
         self.mutex = Store(env, capacity=1)
+        self.scenario = scenario
         self.data = data
         self.policy = policy
 
@@ -171,6 +176,17 @@ class Orchestrator:
             platform_result["energyIdle"] for platform_result in platform_results
         )
 
+        # Carbon footprint evaluation
+        for task_result in task_results:
+            if "carbon" not in task_result:
+                print(f"Clé 'carbon' manquante dans {task_result}")
+
+        use_carbon = sum(task_result["carbon"] for task_result in task_results) + sum(
+            platform_result["carbonIdle"] for platform_result in platform_results)
+        embedded_carbon = sum(platform_result["carbonEmbedded"] for platform_result in platform_results)
+        #embedded_carbon = embedded_footprint_evaluation(self.scenario, self.end_time)
+        carbon_total = use_carbon + embedded_carbon
+
         unused_nodes_idle_energy = [
             node_result["energyIdle"]
             for node_result in node_results
@@ -253,6 +269,7 @@ class Orchestrator:
             "applicationResponseTimeDistribution": application_response_time_quantiles,
             "penaltyDistributionOverTime": penalty_distribution_over_time,
             "energy": energy_total,
+            "carbon": carbon_total,
             "reclaimableEnergy": reclaimable_energy,
             "applicationResults": application_results,
             "nodeResults": node_results,
@@ -261,7 +278,7 @@ class Orchestrator:
         }
 
     def create_application(
-        self, env: Environment, app_id: int, task_id: int, event: WorkloadEvent
+        self, scenario, env: Environment, app_id: int, task_id: int, event: WorkloadEvent
     ) -> Application:
         application_type = event["application"]
         qos_type = event["qos"]
@@ -288,6 +305,7 @@ class Orchestrator:
                 dependencies[function_name] = []
 
             function_task = Task(
+                scenario=scenario,
                 env=env,
                 task_id=task_id,
                 task_type=self.data.task_types[function_name],
@@ -385,6 +403,7 @@ class Orchestrator:
 
             # Create the application according to the event properties
             app = self.create_application(
+                scenario=self.scenario,
                 env=self.env,
                 app_id=app_id,
                 task_id=task_id,
