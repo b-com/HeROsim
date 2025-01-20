@@ -44,6 +44,8 @@ type MoneyEuro = float
 
 type EnergykWh = float
 
+type FootprintEqCO2 = float
+
 type SizeByte = int
 type SizeMegabyte = float
 type SizeGigabyte = float
@@ -155,6 +157,7 @@ class TaskType(TypedDict):
     coldStartDuration: PlatformVector
     executionTime: PlatformVector
     energy: PlatformVector
+    carbon: PlatformVector
     imageSize: PlatformVector
     stateSize: Dict[str, IOVector]
 
@@ -195,6 +198,7 @@ class PlatformResult(TypedDict):
     platformType: PlatformType
     energy: EnergykWh
     energyIdle: EnergykWh
+    carbonIdle: FootprintEqCO2
     idleTime: DurationSecond
     idleProportion: float
     storageTime: DurationSecond
@@ -252,6 +256,7 @@ class TaskResult(TypedDict):
     localDependencies: bool
     localCommunications: bool
     energy: EnergykWh
+    carbon: FootprintEqCO2
 
 
 @final
@@ -356,6 +361,7 @@ class SimulationStats(TypedDict):
     applicationResponseTimeDistribution: List[float]
     penaltyDistributionOverTime: List[Tuple[MomentSecond, float]]
     energy: EnergykWh
+    carbon: FootprintEqCO2
     reclaimableEnergy: EnergykWh
     applicationResults: List[ApplicationResult]
     nodeResults: List[NodeResult]
