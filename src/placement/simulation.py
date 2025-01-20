@@ -37,6 +37,8 @@ from src.placement.model import (
     TimeSeries,
 )
 
+from src.placement.evaluation import find_component, find_time
+
 from src.placement.orchestrator import Orchestrator
 
 from src.placement.autoscaler import Autoscaler
@@ -59,8 +61,10 @@ from src.policy.random.scheduler import RandomScheduler
 from src.policy.bpff.scheduler import BPFFScheduler
 
 
+
 def create_nodes(
     env: Environment,
+    scenario,
     simulation_data: SimulationData,
     simulation_policy: SimulationPolicy,
     infrastructure: Infrastructure,
@@ -70,6 +74,18 @@ def create_nodes(
     storage_id = 0
 
     nodes_store = FilterStore(env)
+
+    # Building the path to the "platform-types.json" file
+    base_dir = os.path.dirname(os.path.dirname(__file__))
+    platform_file = os.path.join(os.path.dirname(base_dir), "data", scenario, "platform-types.json")
+
+    if not os.path.exists(platform_file):
+        raise FileNotFoundError(f"{platform_file} file is not to be found. PLease check it.")
+
+    with open (platform_file) as f2:
+        data = json.load(f2)
+
+    print(data)
 
     for node in infrastructure["nodes"]:
         platforms_store = FilterStore(env)
@@ -89,11 +105,21 @@ def create_nodes(
         nodes_store.put(current_node)
 
         for name in node["platforms"]:
+            parameters = find_component(data, name)
+            lifespan = parameters["lifespan"] * 3600 * 24  *  365.2425
+            total_time = find_time(data)
+            print("Time : ", total_time)
+            print ("mass = ", parameters["mass"], flush = True)
+            
+                
             platforms_store.put(
                 Platform(
                     env=env,
                     platform_id=platform_id,
                     platform_type=simulation_data.platform_types[name],
+                    mass=parameters["mass"],
+                    lifespan=lifespan,
+                    total_time=total_time,
                     node=current_node,
                 )
             )
@@ -120,6 +146,7 @@ def create_nodes(
 
 
 def start_simulation(
+    running_scenario,
     simulation_data: SimulationData,
     simulation_policy: SimulationPolicy,
     infrastructure: Infrastructure,
@@ -146,6 +173,7 @@ def start_simulation(
     # Initialize infrastructure
     nodes: FilterStore = create_nodes(
         env=env,
+        scenario=running_scenario,
         simulation_data=simulation_data,
         simulation_policy=simulation_policy,
         infrastructure=infrastructure,
@@ -180,6 +208,7 @@ def start_simulation(
 
     orchestrator = orchestrator_type(
         env=env,
+        scenario=running_scenario,
         data=simulation_data,
         policy=simulation_policy,
         autoscaler=autoscaler_type,
