@@ -109,6 +109,10 @@ pipenv shell
 # Run the simulation scenario as shown in the paper
 # e.g. compare performances of HRC, HRO, Knative, BPFF and RP policies
 ./scenario-ids.sh
+
+# For the multi-scenario version :
+./ scenario.sh scenario-name
+# for instance, scenario-name can be ids
 ```
 
 ### Method 2: Docker
