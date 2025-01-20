@@ -24,12 +24,15 @@ from typing import Callable, Dict, List, Tuple
 from simpy.core import Environment, SimTime
 from simpy.resources.store import FilterStore, Store
 
+from src.placement.evaluation import use_footprint_evaluation, use_density, carbon_by_weight
+
 from src.placement.model import (
     ApplicationResult,
     ApplicationType,
     CacheEvictionError,
     DurationSecond,
     EnergykWh,
+    FootprintEqCO2,
     MomentSecond,
     NetworkDescription,
     NodeResult,
@@ -130,6 +133,7 @@ class Application:
 class Task:
     def __init__(
         self,
+        scenario,
         env: Environment,
         task_id: int,
         task_type: TaskType,
@@ -141,6 +145,7 @@ class Task:
         self.type = task_type
         self.policy = policy
 
+        self.scenario = scenario
         self.env = env
         self.run = env.process(self.task_process())
 
@@ -168,6 +173,7 @@ class Task:
         self.done_time: SimTime
 
         self.energy: EnergykWh = 0.0
+        self.carbon: FootprintEqCO2 = 0.0
         self.cold_started = False
         self.penalty = False
         self.cache_hit = False
@@ -282,6 +288,9 @@ class Task:
 
         # Consumed energy is task energy (kWh) * task compute time (hours)
         self.energy = self.type["energy"][self.platform.type["shortName"]]
+        
+        # Carbon footprint is embedded footprint + use footprint
+        self.carbon = use_footprint_evaluation(self.energy)
 
     def result(self) -> TaskResult:
         # Null check
@@ -312,6 +321,7 @@ class Task:
             "localDependencies": self.local_dependencies,
             "localCommunications": self.local_communications,
             "energy": self.energy,
+            "carbon": self.carbon,
         }
 
 
@@ -523,14 +533,22 @@ class Platform:
         env: Environment,
         platform_id: int,
         platform_type: PlatformType,
+        mass,
+        lifespan,
+        total_time,
         node: Node,
     ):
         self.id = platform_id
         self.type = platform_type
         self.node = node
+        self.mass = mass
+        self.lifespan = lifespan
 
         self.env = env
         self.run = env.process(self.platform_process())
+
+        self.idle_carbon = 0.0
+        self.embedded_carbon = 0.0
 
         self.queue = Store(env)
 
@@ -543,6 +561,7 @@ class Platform:
 
         self.load_time: SimTime = 0
         self.storage_time: SimTime = 0
+        self.total_time = total_time
 
         self.initialized = env.event()
         self.tasks_count: int = 0
@@ -565,8 +584,12 @@ class Platform:
         return {
             "platformId": self.id,
             "platformType": self.type,
+            "mass": self.mass,
+            "lifespan": self.lifespan,
             "energy": self.type["idleEnergy"] * (self.env.now / 3600),
             "energyIdle": self.type["idleEnergy"] * (idle_time / 3600),
+            "carbonIdle": self.idle_carbon,
+            "carbonEmbedded": self.embedded_carbon,
             "idleTime": idle_time,
             "idleProportion": (idle_time / self.env.now) * 100,
             "storageTime": self.storage_time,
@@ -589,6 +612,7 @@ class Platform:
             task.pull_time = (
                 after_initialize - before_initialize if not task.cache_hit else 0.0
             )
+
 
             # Initialize the task
             yield task.arrived.succeed()
@@ -697,6 +721,16 @@ class Platform:
             # Retrieve task duration according to platform hardware
             task_duration = task.type["executionTime"][self.type["shortName"]]
 
+            # Calculating idle carbon footprint
+            idle_time = self.env.now - self.load_time
+            energy = self.type["idleEnergy"] * (idle_time / 3600)
+            self.idle_carbon += use_footprint_evaluation(energy)
+
+            # Calculating embedded carbon footprint
+            total_time = self.env.now
+            self.embedded_carbon += carbon_by_weight * self.mass * self.env.now / (self.lifespan * use_density)
+            
+
             logging.info(f"[ {self.env.now} ] {self} started {task} execution")
 
             # Run the task to completion
@@ -778,6 +812,8 @@ class Platform:
 
             # Notify scheduler of task completion
             yield task.done.succeed()
+        
+        print('CARBON : ', self.embedded_carbon)
 
 
 class Node:
